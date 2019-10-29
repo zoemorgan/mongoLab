@@ -68,7 +68,13 @@ app.get('/api/movies', (req,res,next) => {
   })
 })
 
-
+app.get('/api/movies/:id', (req, res, next) => {
+console.log(req.params.id);
+MovieModel.findById(req.params.id,
+function (err, data) {
+res.json(data);
+});
+})
 
 app.post('/api/movies', (req,res) =>{
 console.log('post Sucessfull');
